@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    --light-blue: #d8ede9;
+    --nunito: "Nunito", sans-serif;
+    --light-grey: #cccfd1;
+    --special-green: #29d884;
+    --light-green: #e9fcf2;
+    --special-orange: #ff441f;
+}
+
+.grow {
+    flex-grow: 1;
+}
+.img-container {
+    height: 250px;
+}
+.bg-light-blue {
+    background-image: url("./assets/bg.svg");
+}
+.bg-light-grey {
+    background-color: var(--light-grey);
+}
+.btn-green {
+    background-color: var(--special-green) !important;
+    color: #fff !important;
+    width: 120px;
+}
+.btn-light-green {
+    background-color: var(--light-green) !important;
+    color: var(--special-green) !important;
+}
+.ff-nunito {
+    font-family: var(--nunito);
+}
+.medium {
+    font-size: 32px;
+}
+.btn-orange {
+    background-color: var(--special-orange) !important;
+    color: #fff !important;
+    width: 120px;
+}
+.bg-orange {
+    background-color: var(--special-orange);
+}
+.text-orange {
+    color: var(--special-orange);
+}
+.title {
+    font-size: 32px;
+    font-family: var(--nunito);
+    font-weight: 700;
+}
+.subtitle {
+    font-size: 16px;
+}
+.max-img {
+    max-height: 500px;
+}
