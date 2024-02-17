@@ -6,7 +6,7 @@
 
     --light-blue: #d8ede9;
     --nunito: "Nunito", sans-serif;
-    --light-grey: #cccfd1;
+    --light-grey: #edeef0;
     --special-green: #29d884;
     --light-green: #e9fcf2;
     --special-orange: #ff441f;
@@ -28,10 +28,20 @@
     background-color: var(--special-green) !important;
     color: #fff !important;
     width: 120px;
+    transition: all 1s ease-in-out;
+    &:hover {
+        background-color: #1b9b5d !important;
+        color: #fff !important;
+    }
 }
 .btn-light-green {
     background-color: var(--light-green) !important;
     color: var(--special-green) !important;
+    transition: all 1s ease-in-out;
+    &:hover {
+        background-color: var(--special-green) !important;
+        color: #fff !important;
+    }
 }
 .ff-nunito {
     font-family: var(--nunito);
@@ -42,7 +52,6 @@
 .btn-orange {
     background-color: var(--special-orange) !important;
     color: #fff !important;
-    width: 120px;
 }
 .bg-orange {
     background-color: var(--special-orange);

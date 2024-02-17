@@ -4,7 +4,7 @@ import food from "../../assets/food.jpg";
 
 function RecetasCard() {
     return (
-        <Card className="col px-0 col-sm-8 col-md-5 col-lg-3">
+        <Card className="col px-0 col-sm-8 col-md-5 col-lg-3 rounded-4">
             <Card.Img variant="top" src={food} className="img-fluid" />
             <Card.Body className="text-center">
                 <Card.Title className="ff-nunito fw-bold fs-1">
