@@ -10,8 +10,8 @@ export const getRecetas = async (setRecetas) => {
 export const getRecetaById = async (id, setReceta) => {
     const res = await fetch(api_recetas);
     const data = await res.json();
-    const receta = data.filter((receta) => receta.id === id);
-    setReceta(receta[0]);
+    const receta = data.find((receta) => receta.id === id);
+    setReceta(receta);
     return receta;
 };
 
