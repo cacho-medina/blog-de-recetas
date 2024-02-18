@@ -1,5 +1,6 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { crearReceta } from "../../helpers/queries";
 
 function CrearReceta() {
     const {
@@ -8,13 +9,14 @@ function CrearReceta() {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (receta) => {
+    const onSubmit = async (receta) => {
+        const res = await crearReceta(receta);
+        console.log(res);
         alert("Receta creada!");
-        console.log(receta);
     };
 
     return (
-        <Container className="grow py-3">
+        <Container className="grow pt-3 pb-2">
             <h1 className="display-1 ff-nunito fw-bold text-orange text-center">
                 Cargar Receta
             </h1>
@@ -102,7 +104,11 @@ function CrearReceta() {
                         </Form.Text>
                     )}
                 </Form.Group>
-                <Button variant="" className="btn-orange" type="submit">
+                <Button
+                    variant=""
+                    className="btn-orange align-self-md-center px-md-5"
+                    type="submit"
+                >
                     Enviar
                 </Button>
             </Form>

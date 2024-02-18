@@ -1,0 +1,32 @@
+{
+    "recetas": [
+        {
+            "id": "1",
+            "nombreAutor": "Joaquin Medina",
+            "nombreReceta": "Mila napo con pure",
+            "ingredientes": "Carne, salsa de tomates, queso, jamon, leche, huevos",
+            "descripcion": "Ah, la milanesa napolitana con puré, un clásico argentino que conquista corazones y paladares. Imaginen una milanesa dorada y crujiente, abrazada por una capa de jamón y queso mozzarella derretido, coronada con una salsa de tomate casera, aromática y sabrosa. A su lado, un puré de papas cremoso y suave, como una nube de confort."
+        },
+        {
+            "id": "2",
+            "nombreAutor": "Maria Pastrana",
+            "nombreReceta": "Empanadas argentinas",
+            "ingredientes": "Masa, papa, huevo, carne o pollo, cebolla verde",
+            "descripcion": "Las empanadas argentinas, pequeñas obras de arte culinario envueltas en una masa dorada y crujiente, son un viaje de sabores y texturas que te transportan a las pampas argentinas."
+        },
+        {
+            "id": "3",
+            "nombreAutor": "Agustin Reynoso",
+            "nombreReceta": "Locro: Un guiso con historia y sabor",
+            "ingredientes": "Maiz blanco, porotos, zapallo, carne, patita de chancho, mondongo",
+            "descripcion": "El locro, un guiso ancestral que hunde sus raíces en la época precolombina, es un plato emblemático de la gastronomía argentina. Un viaje culinario a través de los sabores y aromas de la tierra, una explosión de texturas y tradiciones."
+        },
+        {
+            "id": "1967",
+            "nombreAutor": "Cacho Medina",
+            "nombreReceta": "Fideos con salsa",
+            "ingredientes": "fideos, manteca, salsa de tomates, queso para rallar",
+            "descripcion": "Los fideos con salsa, un clásico de la cocina hogareña, una danza de sabores y texturas que conquista paladares de todas las edades. Un plato simple, versátil y reconfortante que nos invita a disfrutar de la calidez de un abrazo en cada bocado."
+        }
+    ]
+}

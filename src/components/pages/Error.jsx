@@ -4,7 +4,7 @@ import trash from "../../assets/trash.svg";
 
 function Error() {
     return (
-        <Container className="grow py-3 text-center">
+        <Container className="grow pt-2 text-center py-2">
             <img src={trash} alt="imagen de basurero" className="max-img" />
             <h1 className="display-1 fw-bold text-danger mt-3 title">
                 ERROR 404

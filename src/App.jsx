@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Error from "./components/pages/Error";
 import CrearReceta from "./components/Recetas/CrearReceta";
+import DetalleReceta from "./components/Recetas/DetalleReceta";
 
 function App() {
     return (
@@ -13,7 +14,8 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/crearReceta" element={<CrearReceta />} />
-                <Route exact path="*" element={<Error />} />
+                <Route exact path="/receta/:id" element={<DetalleReceta />} />
+                <Route exact path="/*" element={<Error />} />
             </Routes>
             <Footer />
         </>
