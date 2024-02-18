@@ -7,8 +7,12 @@ export const getRecetas = async (setRecetas) => {
     return data;
 };
 
-export const getRecetaById = async (id) => {
-    
+export const getRecetaById = async (id, setReceta) => {
+    const res = await fetch(api_recetas);
+    const data = await res.json();
+    const receta = data.filter((receta) => receta.id === id);
+    setReceta(receta[0]);
+    return receta;
 };
 
 export const crearReceta = async (receta) => {
@@ -25,3 +29,5 @@ export const crearReceta = async (receta) => {
         console.log(error);
     }
 };
+
+export const deleteReceta = async (id) => {};

@@ -12,7 +12,7 @@ function Home() {
     }, []);
 
     return (
-        <Container fluid className="px-0 grow">
+        <Container fluid className="px-0 grow bg-recetas">
             <section className="bg-light-blue text-center py-3 px-1">
                 <div className="my-4">
                     <h1 className="title">

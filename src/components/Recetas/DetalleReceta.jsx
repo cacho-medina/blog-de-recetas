@@ -1,7 +1,15 @@
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Badge } from "react-bootstrap";
 import foto from "../../assets/food.jpg";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getRecetaById } from "../../helpers/queries";
 
 function DetalleReceta() {
+    const { id } = useParams();
+    const [receta, setReceta] = useState({});
+    useEffect(() => {
+        getRecetaById(id, setReceta);
+    }, []);
     return (
         <Container className="grow py-3">
             <Card className="flex-md-row">
@@ -11,24 +19,20 @@ function DetalleReceta() {
                         className="w-100 h-100 object-fit-cover"
                     />
                 </div>
-                <Card.Body className="col col-md-6">
-                    <Card.Title className="display-6 fw-medium text-center">
-                        Card Title
+                <Card.Body className="col col-md-6 d-flex flex-column">
+                    <Card.Title className="display-6 fw-bolder text-center ff-nunito">
+                        {receta.nombreReceta}
                     </Card.Title>
                     <hr />
+                    <Card.Text>{receta.descripcion}</Card.Text>
                     <Card.Text>
-                        This library embraces uncontrolled components and native
-                        HTML inputs. However, it s hard to avoid working with
-                        external controlled components such as React-Select,
-                        AntD and MUI. To make this simple, we provide a wrapper
-                        component, Controller, to streamline the integration
-                        process while still giving you the freedom to use a
-                        custom register.
+                        <b>Ingredientes:</b> {receta.ingredientes}
                     </Card.Text>
-                    <Card.Text>
-                        <span className="fw-bold">Categoria: </span> Infusiones{" "}
-                        <br />
-                        <span className="fw-bold">Precio: $1000</span>
+                    <Card.Text className="align-self-end">
+                        <b>Autor:</b>{" "}
+                        <Badge bg="" className="bg-orange">
+                            {receta.nombreAutor}
+                        </Badge>
                     </Card.Text>
                 </Card.Body>
             </Card>

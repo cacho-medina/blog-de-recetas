@@ -1,6 +1,7 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { crearReceta } from "../../helpers/queries";
+import Swal from "sweetalert2";
 
 function CrearReceta() {
     const {
@@ -11,8 +12,11 @@ function CrearReceta() {
 
     const onSubmit = async (receta) => {
         const res = await crearReceta(receta);
-        console.log(res);
-        alert("Receta creada!");
+        Swal.fire({
+            title: "Listo!",
+            text: "La receta fue subida con exito!",
+            icon: "success",
+        });
     };
 
     return (
@@ -106,7 +110,7 @@ function CrearReceta() {
                 </Form.Group>
                 <Button
                     variant=""
-                    className="btn-orange align-self-md-center px-md-5"
+                    className="btn-orange align-self-md-center w-150"
                     type="submit"
                 >
                     Enviar
