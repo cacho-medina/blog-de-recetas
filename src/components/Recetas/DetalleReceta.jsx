@@ -35,10 +35,10 @@ function DetalleReceta() {
     return (
         <Container className="grow py-3">
             <div className="mb-4">
-                <Button variant="danger">
+                <Link to={`/borrar/${receta.id}`} className="btn btn-danger">
                     <FaTrashAlt />
                     Borrar
-                </Button>{" "}
+                </Link>{" "}
                 <Link to="/editarReceta" className="btn btn-info text-light">
                     <FiEdit />
                     Editar

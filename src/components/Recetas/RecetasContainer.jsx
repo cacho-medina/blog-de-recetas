@@ -6,7 +6,7 @@ function RecetasContainer({ recetas }) {
         <Container className="py-3">
             <h2 className="display-3 text-center">Mis Recetas</h2>
             <div className="row flex-column align-items-center justify-content-center flex-md-row px-2 py-4 gap-4">
-                {!recetas.length ? (
+                {!recetas?.length ? (
                     <p className="text-center display-6 text-danger">
                         No hay recetas guardadas
                     </p>

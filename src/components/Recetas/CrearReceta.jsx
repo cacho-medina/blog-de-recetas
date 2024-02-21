@@ -8,6 +8,7 @@ function CrearReceta() {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm();
 
     const onSubmit = async (receta) => {
@@ -17,6 +18,7 @@ function CrearReceta() {
             text: "La receta fue subida con exito!",
             icon: "success",
         });
+        reset();
     };
 
     return (

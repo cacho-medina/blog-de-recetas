@@ -7,8 +7,15 @@ import { useEffect, useState } from "react";
 
 function Home() {
     const [recetas, setRecetas] = useState([]);
+    const getData = async () => {
+        const res = await getRecetas();
+        if (res.status === 200) {
+            const data = await res.json();
+            setRecetas(data);
+        }
+    };
     useEffect(() => {
-        getRecetas(setRecetas);
+        getData();
     }, []);
 
     return (
