@@ -1,30 +1,68 @@
 import { Container, Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { crearReceta } from "../../helpers/queries";
+import {
+    crearReceta,
+    getRecetaById,
+    editarReceta,
+} from "../../helpers/queries";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-function CrearReceta() {
+function CrearReceta({ title, editar }) {
+    const { id } = useParams();
     const {
         register,
         handleSubmit,
         formState: { errors },
         reset,
+        setValue,
     } = useForm();
 
-    const onSubmit = async (receta) => {
-        const res = await crearReceta(receta);
-        Swal.fire({
-            title: "Listo!",
-            text: "La receta fue subida con exito!",
-            icon: "success",
-        });
-        reset();
+    const obtenerReceta = async () => {
+        const res = await getRecetaById(id);
+        if (res.status === 200) {
+            const dataReceta = await res.json();
+            setValue("nombreAutor", dataReceta.nombreAutor);
+            setValue("nombreReceta", dataReceta.nombreReceta);
+            setValue("ingredientes", dataReceta.ingredientes);
+            setValue("descripcion", dataReceta.descripcion);
+        }
     };
+
+    const onSubmit = async (receta) => {
+        if (editar) {
+            const res = await editarReceta(receta, id);
+            console.log(res);
+        } else {
+            const res = await crearReceta(receta);
+            if (res.status !== 201) {
+                Swal.fire({
+                    title: "Error",
+                    text: "Algo salio mal!",
+                    icon: "error",
+                });
+            } else {
+                Swal.fire({
+                    title: "Listo!",
+                    text: "La receta fue subida con exito!",
+                    icon: "success",
+                });
+                reset();
+            }
+        }
+    };
+
+    useEffect(() => {
+        if (editar) {
+            obtenerReceta();
+        }
+    }, []);
 
     return (
         <Container className="grow pt-3 pb-2">
             <h1 className="display-1 ff-nunito fw-bold text-orange text-center">
-                Cargar Receta
+                {title} Receta
             </h1>
             <hr />
             <Form

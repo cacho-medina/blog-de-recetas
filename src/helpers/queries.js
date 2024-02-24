@@ -9,13 +9,10 @@ export const getRecetas = async () => {
     }
 };
 
-export const getRecetaById = async (id, setReceta) => {
+export const getRecetaById = async (id) => {
     try {
-        const res = await getRecetas();
-        const data = await res.json();
-        const receta = data.find((receta) => receta.id === id);
-        setReceta(receta);
-        return receta;
+        const res = await fetch(`${api_recetas}/${id}`);
+        return res;
     } catch (error) {
         console.log(error);
     }
@@ -36,11 +33,28 @@ export const crearReceta = async (receta) => {
     }
 };
 
+export const editarReceta = async (receta, id) => {
+    try {
+        const res = await fetch(`${api_recetas}/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(receta),
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const deleteReceta = async (id) => {
     try {
-        const res = await getRecetas();
-        const data = await res.json();
-        const recetasFiltered = data.filter((item) => item.id === id);
-        return "Borrado exitoso";
-    } catch (error) {}
+        const res = await fetch(`${api_recetas}/${id}`, {
+            method: "DELETE",
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
 };

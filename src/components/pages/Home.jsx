@@ -4,6 +4,7 @@ import ImgAnimation from "../ImgAnimation";
 import RecetasContainer from "../Recetas/RecetasContainer";
 import { getRecetas } from "../../helpers/queries";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 function Home() {
     const [recetas, setRecetas] = useState([]);
@@ -12,6 +13,12 @@ function Home() {
         if (res.status === 200) {
             const data = await res.json();
             setRecetas(data);
+        } else {
+            Swal.fire({
+                title: "ERROR!",
+                text: `No se pudo obtener informacion de recetas!`,
+                icon: "error",
+            });
         }
     };
     useEffect(() => {
