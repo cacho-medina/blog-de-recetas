@@ -48,15 +48,21 @@ function Admin() {
                     </tr>
                 </thead>
                 <tbody>
-                    {recetas?.map((item) => {
-                        return (
-                            <Item
-                                receta={item}
-                                key={item.id}
-                                setRecetas={setRecetas}
-                            />
-                        );
-                    })}
+                    {!recetas.length ? (
+                        <tr>
+                            <td colSpan={6} className="text-danger">No hay recetas cargadas</td>
+                        </tr>
+                    ) : (
+                        recetas.map((item) => {
+                            return (
+                                <Item
+                                    receta={item}
+                                    key={item.id}
+                                    setRecetas={setRecetas}
+                                />
+                            );
+                        })
+                    )}
                 </tbody>
             </Table>
         </Container>
