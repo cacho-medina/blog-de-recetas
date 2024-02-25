@@ -10,10 +10,10 @@ Para utilizar la aplicacion es necesario instalar la dependencia de json-server
 npm install json-server
 ```
 
-Con el comando:
+Luego, podras levantar el servidor de json-server con el comando:
+
 ```shell
 npx json-server db.json
 ```
-Podras levantar el servidor de json-server
 
 Por ultimo, tendras que guardar en una variable de entorno llamada "VITE_API_RECETAS" la url que proporciona json-server. Con esto ya podras utilizar las funciones crud que proporciona la herramienta.
