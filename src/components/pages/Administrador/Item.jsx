@@ -1,9 +1,42 @@
 import { deleteReceta, getRecetas } from "../../../helpers/queries";
 import Options from "./Options";
 import Swal from "sweetalert2";
+import { Modal, Button } from "react-bootstrap";
+import { useState } from "react";
+
+function ImgModal(props) {
+    return (
+        <Modal
+            {...props}
+            size="lg"
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+        >
+            <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                    Imagen de {props.nombre}
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="px-0 px-md-2">
+                <img
+                    src={props.img}
+                    alt={`Imagen de ${props.nombre}`}
+                    className="maxModal object-fit-cover"
+                />
+            </Modal.Body>
+            <Modal.Footer>
+                <Button onClick={props.onHide} variant="danger">
+                    Cerrar
+                </Button>
+            </Modal.Footer>
+        </Modal>
+    );
+}
 
 function ItemProd({ receta, setRecetas }) {
-    const { id, nombreAutor, nombreReceta, descripcion, ingredientes } = receta;
+    const [modalShow, setModalShow] = useState(false);
+    const { id, nombreAutor, nombreReceta, descripcion, ingredientes, imagen } =
+        receta;
     const borrarReceta = () => {
         Swal.fire({
             title: "Estas seguro de eliminar la receta?",
@@ -40,10 +73,26 @@ function ItemProd({ receta, setRecetas }) {
 
     return (
         <>
+            <ImgModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                nombre={nombreReceta}
+                img={imagen}
+            />
             <tr>
-                <td>{id}</td>
-                <td style={{ maxWidth: 120 }}>{nombreReceta}</td>
-                <td>{nombreAutor}</td>
+                <td>
+                    <Button
+                        variant=""
+                        onClick={() => setModalShow(true)}
+                        className="fw-medium text-decoration-underline"
+                    >
+                        Ver
+                    </Button>
+                </td>
+                <td className="text-truncate" style={{ maxWidth: 120 }}>
+                    {nombreReceta}
+                </td>
+                <td className="text-truncate">{nombreAutor}</td>
                 <td className="text-truncate" style={{ maxWidth: 150 }}>
                     {descripcion}
                 </td>

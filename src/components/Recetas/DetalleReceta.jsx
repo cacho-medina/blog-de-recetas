@@ -25,16 +25,16 @@ function DetalleReceta() {
         obtenerReceta();
     }, []);
     return (
-        <Container className="grow py-3">
+        <Container className="grow grid">
             <Card className="flex-md-row shadow">
                 <div className="col col-md-6">
                     <Card.Img
-                        src={foto}
-                        className="w-100 h-100 object-fit-cover"
+                        src={receta.imagen}
+                        className="max object-fit-cover"
                     />
                 </div>
                 <Card.Body className="col col-md-6 d-flex flex-column">
-                    <Card.Title className="display-6 fw-bolder text-center ff-nunito">
+                    <Card.Title className="display-6 fw-bolder text-center ff-nunito mb-0">
                         {receta.nombreReceta}
                     </Card.Title>
                     <hr />

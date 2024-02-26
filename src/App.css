@@ -136,3 +136,15 @@
 .shadow {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+.maxModal {
+    width: 100%;
+    max-height: 400px;
+}
+.card-height {
+    height: 200px !important;
+}
+.grid {
+    display: grid;
+    place-items: center;
+}

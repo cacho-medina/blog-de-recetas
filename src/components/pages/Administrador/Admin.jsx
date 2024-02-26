@@ -39,7 +39,7 @@ function Admin() {
             >
                 <thead className="table-success">
                     <tr>
-                        <th>cod</th>
+                        <th>imagen</th>
                         <th>Receta</th>
                         <th>Autor</th>
                         <th>Descripcion</th>

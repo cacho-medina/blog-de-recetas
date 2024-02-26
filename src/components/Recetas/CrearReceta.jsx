@@ -8,8 +8,10 @@ import {
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CrearReceta({ title, editar }) {
+    const navigate = useNavigate();
     const { id } = useParams();
     const {
         register,
@@ -27,13 +29,27 @@ function CrearReceta({ title, editar }) {
             setValue("nombreReceta", dataReceta.nombreReceta);
             setValue("ingredientes", dataReceta.ingredientes);
             setValue("descripcion", dataReceta.descripcion);
+            setValue("imagen", dataReceta.imagen);
         }
     };
 
     const onSubmit = async (receta) => {
         if (editar) {
             const res = await editarReceta(receta, id);
-            console.log(res);
+            if (res.status !== 200) {
+                Swal.fire({
+                    title: "Error",
+                    text: "Algo salio mal!",
+                    icon: "error",
+                });
+            } else {
+                Swal.fire({
+                    title: "Listo!",
+                    text: "La receta fue actualizada con exito!",
+                    icon: "success",
+                });
+                navigate("/administrador");
+            }
         } else {
             const res = await crearReceta(receta);
             if (res.status !== 201) {
@@ -145,6 +161,26 @@ function CrearReceta({ title, editar }) {
                     {errors.descripcion && (
                         <Form.Text className="text-danger">
                             {errors.descripcion.message}
+                        </Form.Text>
+                    )}
+                </Form.Group>
+                <Form.Group controlId="imagen">
+                    <Form.Label>Imagen URL*</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Ej: https://www.pexels.com/es-es/imagen.png"
+                        name="url"
+                        {...register("imagen", {
+                            required: "ingrese una url de imagen",
+                            pattern: {
+                                value: /(http)?s?:?(\/\/[^"']*\.(?:png|jpg|jpeg|gif|png|svg))/i,
+                                message: "ingrese una url válida",
+                            },
+                        })}
+                    />
+                    {errors.imagen && (
+                        <Form.Text className="text-danger">
+                            {errors.imagen.message}
                         </Form.Text>
                     )}
                 </Form.Group>
