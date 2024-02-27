@@ -23,7 +23,7 @@ function CrearReceta({ title, editar }) {
 
     const obtenerReceta = async () => {
         const res = await getRecetaById(id);
-        if (res.status === 200) {
+        if (res.ok) {
             const dataReceta = await res.json();
             setValue("nombreAutor", dataReceta.nombreAutor);
             setValue("nombreReceta", dataReceta.nombreReceta);
@@ -36,7 +36,7 @@ function CrearReceta({ title, editar }) {
     const onSubmit = async (receta) => {
         if (editar) {
             const res = await editarReceta(receta, id);
-            if (res.status !== 200) {
+            if (!res.ok) {
                 Swal.fire({
                     title: "Error",
                     text: "Algo salio mal!",
@@ -52,7 +52,7 @@ function CrearReceta({ title, editar }) {
             }
         } else {
             const res = await crearReceta(receta);
-            if (res.status !== 201) {
+            if (!res.ok) {
                 Swal.fire({
                     title: "Error",
                     text: "Algo salio mal!",

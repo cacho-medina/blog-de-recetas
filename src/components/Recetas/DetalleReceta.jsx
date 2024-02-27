@@ -10,7 +10,7 @@ function DetalleReceta() {
     const [receta, setReceta] = useState({});
     const obtenerReceta = async () => {
         const res = await getRecetaById(id);
-        if (res.status === 200) {
+        if (res.ok) {
             const data = await res.json();
             setReceta(data);
         } else {

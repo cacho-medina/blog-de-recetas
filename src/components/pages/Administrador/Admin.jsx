@@ -10,7 +10,7 @@ function Admin() {
     const [recetas, setRecetas] = useState([]);
     const obtenerRecetas = async () => {
         const res = await getRecetas();
-        if (res.status === 200) {
+        if (res.ok) {
             const data = await res.json();
             setRecetas(data);
         }

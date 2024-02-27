@@ -1,7 +1,5 @@
 const api_recetas = import.meta.env.VITE_API_RECETAS;
 
-console.log(api_recetas);
-
 export const getRecetas = async () => {
     try {
         const res = await fetch(api_recetas);
