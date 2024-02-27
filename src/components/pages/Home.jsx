@@ -46,7 +46,7 @@ function Home() {
                     Comparte tus recetas
                 </h2>
                 <Link
-                    className="btn btn-outline-light px-4 fs-5"
+                    className="btn btn-dark-orange ff-nunito fw-medium px-4 fs-5"
                     to="/crearReceta"
                 >
                     Aqui

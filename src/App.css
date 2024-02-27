@@ -8,7 +8,7 @@
     --nunito: "Nunito", sans-serif;
     --light-grey: #edeef0;
     --special-green: #29d884;
-    --light-green: #e9fcf2;
+    --light-green: #d3fae5;
     --special-orange: #ff441f;
 }
 
@@ -61,6 +61,16 @@
         color: #fff !important;
     }
 }
+.btn-dark-orange {
+    background-color: #f9c7bd !important;
+    color: var(--special-orange) !important;
+    transition: all 1s ease-in-out;
+    &:hover {
+        background-color: #fab0a2 !important;
+        color: #fff !important;
+        transform: scale(1.02);
+    }
+}
 .btn-outline-orange {
     background-color: #fdb4a6 !important;
     border: 1px solid var(--special-orange) !important;
@@ -75,7 +85,7 @@
     background-color: var(--special-orange);
 }
 .text-orange {
-    color: var(--special-orange);
+    color: var(--special-orange) !important;
 }
 .title {
     font-size: 32px;

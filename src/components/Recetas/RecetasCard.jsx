@@ -8,6 +8,7 @@ function RecetasCard({ receta }) {
             <Card.Img
                 variant="top"
                 src={receta.imagen}
+                alt={receta.nombreReceta}
                 className="img-fluid object-fit-cover card-height"
             />
             <Card.Body className="text-center d-flex flex-column justify-content-between">
