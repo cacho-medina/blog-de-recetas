@@ -1,10 +1,10 @@
-import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ImgAnimation from "../ImgAnimation";
 import RecetasContainer from "../Recetas/RecetasContainer";
 import { getRecetas } from "../../helpers/queries";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
 
 function Home() {
     const [recetas, setRecetas] = useState([]);
@@ -26,7 +26,17 @@ function Home() {
     }, []);
 
     return (
-        <Container fluid className="px-0 grow bg-recetas">
+        <motion.div
+            className="container-fluid px-0 grow bg-recetas"
+            initial={{ opacity: 0 }}
+            animate={{
+                opacity: 1,
+                transition: { duration: 1 },
+            }}
+            exit={{
+                opacity: 0,
+            }}
+        >
             <section className="bg-light-blue text-center py-3 px-1">
                 <div className="my-4">
                     <h1 className="title">
@@ -53,7 +63,7 @@ function Home() {
                 </Link>
             </section>
             <RecetasContainer recetas={recetas} />
-        </Container>
+        </motion.div>
     );
 }
 

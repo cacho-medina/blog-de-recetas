@@ -1,4 +1,4 @@
-import Container from "react-bootstrap/Container";
+import { motion } from "framer-motion";
 import Table from "react-bootstrap/Table";
 import Item from "./Item";
 import { FiFilePlus } from "react-icons/fi";
@@ -19,7 +19,17 @@ function Admin() {
         obtenerRecetas();
     }, []);
     return (
-        <Container className="grow">
+        <motion.div
+            className="container grow"
+            initial={{ opacity: 0 }}
+            animate={{
+                opacity: 1,
+                transition: { duration: 1 },
+            }}
+            exit={{
+                opacity: 0,
+            }}
+        >
             <div className="d-flex justify-content-between align-items-center">
                 <h1 className="display-3 ff-nunito fw-bold text-orange">
                     Productos Disponibles
@@ -50,7 +60,9 @@ function Admin() {
                 <tbody>
                     {!recetas.length ? (
                         <tr>
-                            <td colSpan={6} className="text-danger">No hay recetas cargadas</td>
+                            <td colSpan={6} className="text-danger">
+                                No hay recetas cargadas
+                            </td>
                         </tr>
                     ) : (
                         recetas.map((item) => {
@@ -65,7 +77,7 @@ function Admin() {
                     )}
                 </tbody>
             </Table>
-        </Container>
+        </motion.div>
     );
 }
 

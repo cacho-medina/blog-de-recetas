@@ -1,5 +1,5 @@
-import { Container, Card, Badge } from "react-bootstrap";
-import foto from "../../assets/food.jpg";
+import { Card, Badge } from "react-bootstrap";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getRecetaById } from "../../helpers/queries";
@@ -25,7 +25,17 @@ function DetalleReceta() {
         obtenerReceta();
     }, []);
     return (
-        <Container className="grow grid">
+        <motion.div
+            className="container grow grid"
+            initial={{ opacity: 0 }}
+            animate={{
+                opacity: 1,
+                transition: { duration: 1 },
+            }}
+            exit={{
+                opacity: 0,
+            }}
+        >
             <Card className="flex-md-row shadow">
                 <div className="col col-md-6">
                     <Card.Img
@@ -50,7 +60,7 @@ function DetalleReceta() {
                     </Card.Text>
                 </Card.Body>
             </Card>
-        </Container>
+        </motion.div>
     );
 }
 

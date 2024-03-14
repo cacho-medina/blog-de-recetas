@@ -1,4 +1,5 @@
-import { Container, Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import {
     crearReceta,
@@ -76,7 +77,17 @@ function CrearReceta({ title, editar }) {
     }, []);
 
     return (
-        <Container className="grow pt-3 pb-2">
+        <motion.div
+            className="container grow pt-3 pb-2"
+            initial={{ opacity: 0 }}
+            animate={{
+                opacity: 1,
+                transition: { duration: 0.4 },
+            }}
+            exit={{
+                opacity: 0,
+            }}
+        >
             <h1 className="display-1 ff-nunito fw-bold text-orange text-center">
                 {title} Receta
             </h1>
@@ -192,7 +203,7 @@ function CrearReceta({ title, editar }) {
                     Enviar
                 </Button>
             </Form>
-        </Container>
+        </motion.div>
     );
 }
 
