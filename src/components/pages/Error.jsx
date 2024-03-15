@@ -6,13 +6,9 @@ function Error() {
     return (
         <motion.div
             className="container grow pt-2 text-center py-2"
-            initial={{ opacity: 0, translateX: "-100px" }}
-            animate={{
-                opacity: 1,
-                translateX: 0,
-                transition: { duration: 1 },
-            }}
-            exit={{ opacity: 0 }}
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
         >
             <img src={trash} alt="imagen de basurero" className="max-img" />
             <h1 className="display-1 fw-bold text-danger mt-3 title">

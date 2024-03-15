@@ -12,7 +12,7 @@ function NavBar() {
     return (
         <Navbar expand="md" bg="light" data-bs-theme="light">
             <Container>
-                <Navbar.Brand as={Link} to="/" className="rotate">
+                <Navbar.Brand as={Link} to="/" className="onTap">
                     <img src={logo} alt="logo blog de recetas" height="80" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
