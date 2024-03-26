@@ -35,8 +35,14 @@ function ImgModal(props) {
 
 function ItemProd({ receta, setRecetas }) {
     const [modalShow, setModalShow] = useState(false);
-    const { id, nombreAutor, nombreReceta, descripcion, ingredientes, imagen } =
-        receta;
+    const {
+        _id,
+        nombreAutor,
+        nombreReceta,
+        descripcion,
+        ingredientes,
+        imagen,
+    } = receta;
     const borrarReceta = () => {
         Swal.fire({
             title: "Estas seguro de eliminar la receta?",
@@ -48,7 +54,7 @@ function ItemProd({ receta, setRecetas }) {
             confirmButtonText: "Eliminar",
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await deleteReceta(id);
+                const res = await deleteReceta(_id);
                 if (res.status === 200) {
                     Swal.fire({
                         title: "Receta eliminada!",
@@ -70,7 +76,6 @@ function ItemProd({ receta, setRecetas }) {
             }
         });
     };
-
     return (
         <>
             <ImgModal
@@ -100,7 +105,7 @@ function ItemProd({ receta, setRecetas }) {
                     {ingredientes}
                 </td>
                 <td className="d-flex align-items-center justify-content-center gap-1">
-                    <Options borrarReceta={borrarReceta} id={id} />
+                    <Options borrarReceta={borrarReceta} id={_id} />
                 </td>
             </tr>
         </>

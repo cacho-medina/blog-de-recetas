@@ -18,7 +18,6 @@ function CrearReceta({ title, editar }) {
         register,
         handleSubmit,
         formState: { errors },
-        reset,
         setValue,
     } = useForm();
 
@@ -49,7 +48,6 @@ function CrearReceta({ title, editar }) {
                     text: "La receta fue actualizada con exito!",
                     icon: "success",
                 });
-                navigate("/administrador");
             }
         } else {
             const res = await crearReceta(receta);
@@ -65,9 +63,9 @@ function CrearReceta({ title, editar }) {
                     text: "La receta fue subida con exito!",
                     icon: "success",
                 });
-                reset();
             }
         }
+        navigate("/administrador");
     };
 
     useEffect(() => {

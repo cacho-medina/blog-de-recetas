@@ -1,11 +1,12 @@
 const api_recetas = import.meta.env.VITE_API_RECETAS;
+const api_usuarios = import.meta.env.VITE_API_USUARIOS;
 
 export const getRecetas = async () => {
     try {
         const res = await fetch(api_recetas);
         return res;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
 
@@ -14,7 +15,7 @@ export const getRecetaById = async (id) => {
         const res = await fetch(`${api_recetas}/${id}`);
         return res;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
 
@@ -29,7 +30,7 @@ export const crearReceta = async (receta) => {
         });
         return res;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
 
@@ -44,7 +45,7 @@ export const editarReceta = async (receta, id) => {
         });
         return res;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
 
@@ -55,6 +56,44 @@ export const deleteReceta = async (id) => {
         });
         return res;
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 };
+
+export const registrarUser = async (user) => {
+    try {
+        const res = await fetch(api_usuarios, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user),
+        });
+        return res;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const login = async (credenciales) => {
+    try {
+        const res = await fetch(api_usuarios);
+        const usuarios = await res.json();
+        const userLogged = usuarios.find(
+            (user) =>
+                user.email === credenciales.email &&
+                user.password === credenciales.password
+        );
+        if (userLogged) {
+            sessionStorage.setItem(
+                "loginAdmin",
+                JSON.stringify(userLogged.email)
+            );
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const logout = () => {};

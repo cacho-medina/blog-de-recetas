@@ -45,7 +45,7 @@ function Admin() {
             <Table
                 hover
                 responsive
-                className="shadow overflow-x-hidden align-middle text-center"
+                className="rounded-1 shadow overflow-x-hidden align-middle text-center"
             >
                 <thead className="table-success">
                     <tr>
@@ -69,7 +69,7 @@ function Admin() {
                             return (
                                 <Item
                                     receta={item}
-                                    key={item.id}
+                                    key={item._id}
                                     setRecetas={setRecetas}
                                 />
                             );

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import food from "../../assets/food.jpg";
 
 function RecetasCard({ receta }) {
     return (
-        <Card className="col px-0 col-sm-8 col-md-5 col-lg-3 rounded-4 max scale-effect">
+        <Card className="col-12 px-0 col-sm-8 col-md-5 col-lg-3 rounded-4 max scale-effect">
             <Card.Img
                 variant="top"
                 src={receta.imagen}
@@ -16,7 +15,7 @@ function RecetasCard({ receta }) {
                     {receta.nombreReceta}
                 </Card.Title>
                 <Link
-                    to={`/receta/${receta.id}`}
+                    to={`/receta/${receta._id}`}
                     className="btn btn-light-green fw-medium ff-nunito"
                 >
                     Ver mas...

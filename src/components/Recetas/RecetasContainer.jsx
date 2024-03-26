@@ -11,8 +11,8 @@ function RecetasContainer({ recetas }) {
                         No hay recetas guardadas
                     </p>
                 ) : (
-                    recetas?.map((receta, index) => {
-                        return <RecetasCard receta={receta} key={index} />;
+                    recetas?.map((receta) => {
+                        return <RecetasCard receta={receta} key={receta._id} />;
                     })
                 )}
             </div>
